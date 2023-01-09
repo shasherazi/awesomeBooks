@@ -9,6 +9,11 @@ function updateLocalStorage() {
   localStorage.setItem('booksArray', JSON.stringify(books));
 }
 
+function removeBook(title) {
+  // Remove book from the books array
+  books = books.filter((book) => book.title !== title);
+}
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const book = {
@@ -38,7 +43,7 @@ document.addEventListener('click', (e) => {
     e.target.parentElement.remove();
 
     const title = e.target.parentElement.querySelector('.main-books-list-ul-li-title').innerText;
-    books = books.filter((book) => book.title !== title);
+    removeBook(title);
+    updateLocalStorage();
   }
-  updateLocalStorage();
 });
