@@ -4,14 +4,13 @@
     box-sizing: border-box;
 }
 
-main {
-  margin: 20px 90px;
+.main {
+  margin: 20px 50px;
   text-align: center;
 }
 
-main h1 {
-  font-size: 4.5rem;
-  margin-bottom: 70px;
+.main-heading {
+  margin-bottom: 20px;
 }
 
 .main-form-form {
@@ -20,19 +19,16 @@ main h1 {
 }
 
 .main-form-form input {
-  padding: 20px;
+  padding: 10px;
   width: 50%;
   min-width: 300px;
-  font-size: 20px;
 }
 
 .main-form-form > * {
   margin-bottom: 20px;
 }
 
-button {
-  width: 50%;
-  padding: 20px;
-  font-size: 20px;
+.main-form-form-submit {
+  width: fit-content;
+  padding: 10px;
 }
-
