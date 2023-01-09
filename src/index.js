@@ -4,6 +4,11 @@ const title = document.querySelector('.main-form-form-title');
 const author = document.querySelector('.main-form-form-author');
 let books = [];
 
+function updateLocalStorage() {
+  // Add item to local storage
+  localStorage.setItem('booksArray', JSON.stringify(books));
+}
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const book = {
@@ -23,6 +28,8 @@ form.addEventListener('submit', (e) => {
         <hr class="main-books-list-ul-li-hr">
     `;
   booksList.appendChild(bookItem);
+
+  updateLocalStorage();
 });
 
 // Remove books from the List and from the books array
@@ -33,4 +40,5 @@ document.addEventListener('click', (e) => {
     const title = e.target.parentElement.querySelector('.main-books-list-ul-li-title').innerText;
     books = books.filter((book) => book.title !== title);
   }
+  updateLocalStorage();
 });
