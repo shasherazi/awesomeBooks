@@ -1,16 +1,25 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .main {
   margin: 20px 50px;
-  text-align: center;
 }
 
 .main-heading {
   margin-bottom: 20px;
+  text-align: center;
+}
+
+.main-books-list-ul {
+  list-style-type: none;
+  margin-bottom: 50px;
+}
+
+.main-books-list-ul-li-hr {
+  margin: 20px 0;
 }
 
 .main-form-form {
