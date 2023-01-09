@@ -2,7 +2,7 @@ const booksList = document.querySelector('.main-books-list-ul');
 const form = document.querySelector('.main-form-form');
 const title = document.querySelector('.main-form-form-title');
 const author = document.querySelector('.main-form-form-author');
-const books = [];
+let books = [];
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -25,9 +25,12 @@ form.addEventListener('submit', (e) => {
   booksList.appendChild(bookItem);
 });
 
-// Remove books from the List
+// Remove books from the List and from the books array
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('main-books-list-ul-li-button')) {
     e.target.parentElement.remove();
+
+    const title = e.target.parentElement.querySelector('.main-books-list-ul-li-title').innerText;
+    books = books.filter((book) => book.title !== title);
   }
 });
