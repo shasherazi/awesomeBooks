@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  margin: 20px 50px;
+}
+
+.main-heading {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.main-books-list-ul {
+  list-style-type: none;
+  margin-bottom: 50px;
+}
+
+.main-books-list-ul-li-hr {
+  margin: 20px 0;
+}
+
+.main-form-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-form-form input {
+  padding: 10px;
+  width: 50%;
+  min-width: 300px;
+}
+
+.main-form-form > * {
+  margin-bottom: 20px;
+}
+
+.main-form-form-submit {
+  width: fit-content;
+  padding: 10px;
+}
