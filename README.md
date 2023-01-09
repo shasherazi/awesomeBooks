@@ -19,12 +19,15 @@ REQUIRED SECTIONS:
 - Acknowledgements
 - License
 
+OPTIONAL SECTIONS:
+- FAQ
+
 After you're finished please remove all the comments and instructions!
 -->
 
 <div align="center">
   <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
-  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
+  <img src="https://raw.githubusercontent.com/microverseinc/readme-template/master/murple_logo.png" alt="logo" width="140"  height="auto" />
   <br/>
 
   <h3><b>Microverse README Template</b></h3>
@@ -37,36 +40,53 @@ After you're finished please remove all the comments and instructions!
 
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
-- [❓ FAQ](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Awesome Book Project <a name="about-project"></a>
+# 📖 AwesomeBooks <a name="about-project"></a>
 
-**Awesome Book** is a project that involves students using html, css and javascript to build a book app that receives book, delete books and apply dynamic functionalities.
+**AwesomeBooks** is a simple website that allows users to add/remove books from a list. This project is part of the Microverse curriculum.
+
+## 🛠 Built With <a name="built-with"></a>
+
+- HTML
+- CSS
+- JavaScript
 
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://example.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+There are no prerequisites for this project.
+
+### Setup
+
+Clone this repository to your desired folder:
+
+```sh
+  cd awesomeBooks
+  git clone https://github.com/shasherazi/awesomeBooks.git
+```
 
 <!-- AUTHORS -->
 
@@ -84,7 +104,6 @@ After you're finished please remove all the comments and instructions!
 - Twitter: [@pison_fullstack](https://twitter.com/pison_fullstack)
 - LinkedIn: [kanuchukwuemeka](https://linkedin.com/in/kanuchukwuemeka)
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
@@ -101,13 +120,9 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project, give it a star! ⭐️
+If you like this project then give it a star ⭐️.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ <a name="faq"></a>
 
 <!-- LICENSE -->
 
