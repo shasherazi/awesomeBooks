@@ -24,3 +24,10 @@ form.addEventListener('submit', (e) => {
     `;
   booksList.appendChild(bookItem);
 });
+
+// Remove books from the List 
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('main-books-list-ul-li-button')) {
+    e.target.parentElement.remove();
+  }
+});
