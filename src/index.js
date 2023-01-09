@@ -1,7 +1,7 @@
 const booksList = document.querySelector('.main-books-list-ul');
 const form = document.querySelector('.main-form-form');
-const title = document.querySelector('.main-form-form-title');
-const author = document.querySelector('.main-form-form-author');
+const formTitle = document.querySelector('.main-form-form-title');
+const formAuthor = document.querySelector('.main-form-form-author');
 let books = [];
 
 function updateLocalStorage() {
@@ -14,26 +14,28 @@ function removeBook(title) {
   books = books.filter((book) => book.title !== title);
 }
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const book = {
-    title: title.value,
-    author: author.value,
-  };
-  books.push(book);
-  title.value = '';
-  author.value = '';
+function addBookToView(title, author) {
+  books.push({
+    title,
+    author,
+  });
+  formTitle.value = '';
+  formAuthor.value = '';
 
   const bookItem = document.createElement('li');
   bookItem.classList.add('main-books-list-ul-li');
   bookItem.innerHTML = `
-        <p class="main-books-list-ul-li-title">${book.title}</p>
-        <p class="main-books-list-ul-li-author">${book.author}</p>
-        <button class="main-books-list-ul-li-button">Remove</button>
-        <hr class="main-books-list-ul-li-hr">
-    `;
+          <p class="main-books-list-ul-li-title">${title}</p>
+          <p class="main-books-list-ul-li-author">${author}</p>
+          <button class="main-books-list-ul-li-button">Remove</button>
+          <hr class="main-books-list-ul-li-hr">
+      `;
   booksList.appendChild(bookItem);
+}
 
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  addBookToView(formTitle.value, formAuthor.value);
   updateLocalStorage();
 });
 
@@ -45,5 +47,15 @@ document.addEventListener('click', (e) => {
     const title = e.target.parentElement.querySelector('.main-books-list-ul-li-title').innerText;
     removeBook(title);
     updateLocalStorage();
+  }
+});
+
+// Get books from local storage
+document.addEventListener('DOMContentLoaded', () => {
+  const books = JSON.parse(localStorage.getItem('booksArray'));
+  if (books) {
+    books.forEach((book) => {
+      addBookToView(book.title, book.author);
+    });
   }
 });
