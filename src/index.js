@@ -24,9 +24,9 @@ class Book {
     const bookItem = document.createElement('li');
     bookItem.classList.add('main-books-list-ul-li');
     bookItem.innerHTML = `
-    <div class="inserted-books"><div class='book-title'><p class="main-books-list-ul-li-title">"${title}"  </p> by 
-    <p class="main-books-list-ul-li-author">${author}  </p></div>
-    <button class="main-books-list-ul-li-button">Remove</button></div>
+    <p class="main-books-list-ul-li-title">${title}</p>
+    <p class="main-books-list-ul-li-author">${author}</p>
+            <button class="main-books-list-ul-li-button">Remove</button>
             <hr class="main-books-list-ul-li-hr">
             `;
     booksList.appendChild(bookItem);
@@ -34,6 +34,7 @@ class Book {
 
   removeBook() {
     Book.books = Book.books.filter((book) => book.title !== this.title);
+    updateLocalStorage(); // eslint-disable-line no-use-before-define
   }
 }
 
@@ -63,7 +64,6 @@ document.addEventListener('click', (e) => {
       ).innerText,
     );
     book.removeBook();
-    updateLocalStorage();
   }
 });
 
