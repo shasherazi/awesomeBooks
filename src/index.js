@@ -11,8 +11,8 @@ class Book {
       this.author = author;
     }
 
+    /* eslint-disable class-methods-use-this */
     addBookToView(title, author) {
-      /* eslint-disable class-methods-use-this */
       Book.books.push({
         title,
         author,
@@ -30,7 +30,6 @@ class Book {
             <hr class="main-books-list-ul-li-hr">
             `;
       booksList.appendChild(bookItem);
-      /* eslint-disable class-methods-use-this */
     }
 
     removeBook() {
