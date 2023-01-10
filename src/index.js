@@ -3,41 +3,44 @@ const form = document.querySelector('.main-form-form');
 const formTitle = document.querySelector('.main-form-form-title');
 const formAuthor = document.querySelector('.main-form-form-author');
 
-let books = [];
 class Book {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-  }
+    static books = [];
 
-  addBookToView(title, author) {
-    books.push({
-      title,
-      author,
-    });
+    constructor(title, author) {
+      this.title = title;
+      this.author = author;
+    }
 
-    formTitle.value = '';
-    formAuthor.value = '';
+    addBookToView(title, author) {
+      /* eslint-disable class-methods-use-this */
+      Book.books.push({
+        title,
+        author,
+      });
 
-    const bookItem = document.createElement('li');
-    bookItem.classList.add('main-books-list-ul-li');
-    bookItem.innerHTML = `
-            <p class="main-books-list-ul-li-title">${title}</p>
+      formTitle.value = '';
+      formAuthor.value = '';
+
+      const bookItem = document.createElement('li');
+      bookItem.classList.add('main-books-list-ul-li');
+      bookItem.innerHTML = `
+    <p class="main-books-list-ul-li-title">${title}</p>
             <p class="main-books-list-ul-li-author">${author}</p>
             <button class="main-books-list-ul-li-button">Remove</button>
             <hr class="main-books-list-ul-li-hr">
-        `;
-    booksList.appendChild(bookItem);
-  }
+            `;
+      booksList.appendChild(bookItem);
+      /* eslint-disable class-methods-use-this */
+    }
 
-  removeBook() {
-    books = books.filter((book) => book.title !== this.title);
-  }
+    removeBook() {
+      Book.books = Book.books.filter((book) => book.title !== this.title);
+    }
 }
 
 function updateLocalStorage() {
   // Add item to local storage
-  localStorage.setItem('booksArray', JSON.stringify(books));
+  localStorage.setItem('booksArray', JSON.stringify(Book.books));
 }
 
 form.addEventListener('submit', (e) => {
