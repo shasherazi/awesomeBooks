@@ -13,6 +13,20 @@
   text-align: center;
 }
 
+.inserted-books {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.book-title {
+  display: flex;
+}
+
+.book-title p {
+  padding: 0 10px;
+}
+
 .main-books-list-ul {
   list-style-type: none;
   margin-bottom: 50px;
@@ -25,6 +39,7 @@
 .main-form-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .main-form-form input {
@@ -40,4 +55,5 @@
 .main-form-form-submit {
   width: fit-content;
   padding: 10px;
+  text-align: right;
 }
