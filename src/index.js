@@ -4,37 +4,37 @@ const formTitle = document.querySelector('.main-form-form-title');
 const formAuthor = document.querySelector('.main-form-form-author');
 
 class Book {
-    static books = [];
+  static books = [];
 
-    constructor(title, author) {
-      this.title = title;
-      this.author = author;
-    }
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
 
-    /* eslint-disable class-methods-use-this */
-    addBookToView(title, author) {
-      Book.books.push({
-        title,
-        author,
-      });
+  /* eslint-disable class-methods-use-this */
+  addBookToView(title, author) {
+    Book.books.push({
+      title,
+      author,
+    });
 
-      formTitle.value = '';
-      formAuthor.value = '';
+    formTitle.value = '';
+    formAuthor.value = '';
 
-      const bookItem = document.createElement('li');
-      bookItem.classList.add('main-books-list-ul-li');
-      bookItem.innerHTML = `
-    <p class="main-books-list-ul-li-title">${title}</p>
-            <p class="main-books-list-ul-li-author">${author}</p>
-            <button class="main-books-list-ul-li-button">Remove</button>
+    const bookItem = document.createElement('li');
+    bookItem.classList.add('main-books-list-ul-li');
+    bookItem.innerHTML = `
+    <div class="inserted-books"><div class='book-title'><p class="main-books-list-ul-li-title">"${title}"  </p> by 
+    <p class="main-books-list-ul-li-author">${author}  </p></div>
+    <button class="main-books-list-ul-li-button">Remove</button></div>
             <hr class="main-books-list-ul-li-hr">
             `;
-      booksList.appendChild(bookItem);
-    }
+    booksList.appendChild(bookItem);
+  }
 
-    removeBook() {
-      Book.books = Book.books.filter((book) => book.title !== this.title);
-    }
+  removeBook() {
+    Book.books = Book.books.filter((book) => book.title !== this.title);
+  }
 }
 
 function updateLocalStorage() {
@@ -54,7 +54,14 @@ document.addEventListener('click', (e) => {
   if (e.target.classList.contains('main-books-list-ul-li-button')) {
     e.target.parentElement.remove();
 
-    const book = new Book(e.target.parentElement.querySelector('.main-books-list-ul-li-title').innerText, e.target.parentElement.querySelector('.main-books-list-ul-li-author').innerText);
+    const book = new Book(
+      e.target.parentElement.querySelector(
+        '.main-books-list-ul-li-title',
+      ).innerText,
+      e.target.parentElement.querySelector(
+        '.main-books-list-ul-li-author',
+      ).innerText,
+    );
     book.removeBook();
     updateLocalStorage();
   }
