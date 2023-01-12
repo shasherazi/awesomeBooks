@@ -8,8 +8,35 @@
   margin: 20px 50px;
 }
 
+nav {
+  border: 2px solid black;
+  padding: 10px;
+}
+
 .main-heading {
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-heading ul {
+  display: flex;
+}
+
+.main-heading ul li {
+  padding: 0 10px;
+  text-decoration: none;
+  list-style: none;
+  cursor: pointer;
+}
+
+#currentDate {
+  text-align: right;
+  font-size: 0.5rem;
+  padding: 5px 0;
+}
+
+.book-heading {
+  padding: 10px;
   text-align: center;
 }
 
@@ -25,6 +52,11 @@
 
 .book-title p {
   padding: 0 10px;
+}
+
+.main-books-list {
+  border: 2px solid black;
+  padding: 5px;
 }
 
 .main-books-list-ul {
@@ -56,4 +88,38 @@
   width: fit-content;
   padding: 10px;
   text-align: right;
+}
+
+.book-list-display {
+  display: block;
+}
+
+.book-list-display h3 {
+  text-align: center;
+  padding: 10px;
+}
+
+.copyright {
+  padding: 5px;
+  border: 2px solid black;
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
+
+.contact-info {
+  padding: 10px;
+  text-align: center;
+  margin: 0 150px;
+}
+
+.contact-info h3 {
+  padding: 50px 0;
+}
+
+.contact-info p {
+  padding-bottom: 30px;
+}
+
+.contact-info ul li {
+  /* text-align: left; */
 }

@@ -1,30 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css" />
     <script defer src="./src/index.js"></script>
-    <title>Awesome Books
-    </title>
-</head>
-<body>
+    <title>Awesome Books</title>
+  </head>
+  <body>
     <main class="main">
-        <h1 class="main-heading">
-            All Awesome Books
-        </h1>
+      <nav class="main-heading">
+        <h3>Awesome Books</h3>
+        <ul>
+          <li>List</li>
+          <li>Add New</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+      <p id="currentDate"></p>
 
+      <!-- Add a Book -->
+      <h3 class="book-heading">Add a New Book</h3>
+      <section class="main-form">
+        <form class="main-form-form">
+          <input
+            required
+            type="text"
+            class="main-form-form-title"
+            placeholder="Title"
+          />
+          <input
+            required
+            type="text"
+            class="main-form-form-author"
+            placeholder="Author"
+          />
+          <button type="submit" class="main-form-form-submit">Add</button>
+        </form>
+      </section>
+
+      <!-- Book List Display -->
+      <article class="book-list-display">
+        <h3>All Awesome Books</h3>
         <section class="main-books-list">
-            <ul class="main-books-list-ul"></ul>
+          <ul class="main-books-list-ul"></ul>
         </section>
+        <p class="copyright">copyright 2023</p>
+      </article>
 
-        <section class="main-form">
-            <form class="main-form-form">
-                <input required type="text" class="main-form-form-title" placeholder="Title">
-                <input required type="text" class="main-form-form-author" placeholder="Author">
-                <button type="submit" class="main-form-form-submit">Add</button>
-            </form>
+      <!-- Contact -->
+      <article class="contact-info">
+        <h3>Contact Us</h3>
+        <p>
+          If you have any questions or you just want to say "Hello", you can
+          reach out to us!
+        </p>
+        <ul>
+            <li>our email: mail@mail.com</li>
+            <li>Our phone number: +111 111 1111 1111</li>
+            <li>Our Address: StreetName 22, 84503, City, Country</li>
+        </ul>
+      </article>
     </main>
-</body>
+  </body>
 </html>

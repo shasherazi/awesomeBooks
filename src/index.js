@@ -1,7 +1,7 @@
-const booksList = document.querySelector('.main-books-list-ul');
-const form = document.querySelector('.main-form-form');
-const formTitle = document.querySelector('.main-form-form-title');
-const formAuthor = document.querySelector('.main-form-form-author');
+const booksList = document.querySelector(".main-books-list-ul");
+const form = document.querySelector(".main-form-form");
+const formTitle = document.querySelector(".main-form-form-title");
+const formAuthor = document.querySelector(".main-form-form-author");
 
 class Book {
   static books = [];
@@ -18,11 +18,11 @@ class Book {
       author,
     });
 
-    formTitle.value = '';
-    formAuthor.value = '';
+    formTitle.value = "";
+    formAuthor.value = "";
 
-    const bookItem = document.createElement('li');
-    bookItem.classList.add('main-books-list-ul-li');
+    const bookItem = document.createElement("li");
+    bookItem.classList.add("main-books-list-ul-li");
     bookItem.innerHTML = `
     <p class="main-books-list-ul-li-title">${title}</p>
     <p class="main-books-list-ul-li-author">${author}</p>
@@ -40,10 +40,10 @@ class Book {
 
 function updateLocalStorage() {
   // Add item to local storage
-  localStorage.setItem('booksArray', JSON.stringify(Book.books));
+  localStorage.setItem("booksArray", JSON.stringify(Book.books));
 }
 
-form.addEventListener('submit', (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   const book = new Book(formTitle.value, formAuthor.value);
   book.addBookToView(formTitle.value, formAuthor.value);
@@ -51,25 +51,25 @@ form.addEventListener('submit', (e) => {
 });
 
 // Remove books from the List and from the books array
-document.addEventListener('click', (e) => {
-  if (e.target.classList.contains('main-books-list-ul-li-button')) {
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("main-books-list-ul-li-button")) {
     e.target.parentElement.remove();
 
     const book = new Book(
       e.target.parentElement.querySelector(
-        '.main-books-list-ul-li-title',
+        ".main-books-list-ul-li-title"
       ).innerText,
       e.target.parentElement.querySelector(
-        '.main-books-list-ul-li-author',
-      ).innerText,
+        ".main-books-list-ul-li-author"
+      ).innerText
     );
     book.removeBook();
   }
 });
 
 // Get books from local storage
-document.addEventListener('DOMContentLoaded', () => {
-  const books = JSON.parse(localStorage.getItem('booksArray'));
+document.addEventListener("DOMContentLoaded", () => {
+  const books = JSON.parse(localStorage.getItem("booksArray"));
   if (books) {
     books.forEach((book) => {
       const bookItem = new Book(book.title, book.author);
@@ -77,3 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Display the current date
+var currentDate = new Date();
+document.getElementById("currentDate").innerHTML = currentDate;
+currentDate.toLocaleDateString();
