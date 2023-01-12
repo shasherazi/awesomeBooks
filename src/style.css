@@ -109,8 +109,9 @@ nav {
   display: flex;
 }
 
-.book-name p {
-  padding: 0 10px;
+.main-books-list-ul-li-author::before {
+  content: "\00a0 ";
+  display: inline;
 }
 
 .copyright {

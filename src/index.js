@@ -34,7 +34,7 @@ class Book {
     <div>
       <div class='books-display'>
         <div class='book-name'>
-          <p class="main-books-list-ul-li-title">"${title}" by </p>
+          <p class="main-books-list-ul-li-title">${title} by</p>
           <p class="main-books-list-ul-li-author">${author}</p>
         </div>
         <div>
@@ -48,7 +48,7 @@ class Book {
   }
 
   removeBook() {
-    Book.books = Book.books.filter((book) => book.title !== this.title);
+    Book.books = Book.books.filter((book) => `${book.title} by` !== this.title);
     updateLocalStorage(); // eslint-disable-line no-use-before-define
   }
 }
@@ -79,11 +79,11 @@ form.addEventListener('submit', (e) => {
 // Remove books from the List and from the books array
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('main-books-list-ul-li-button')) {
-    e.target.parentElement.parentElement.remove();
+    e.target.parentElement.parentElement.parentElement.remove();
 
     const book = new Book(
-      e.target.parentElement.querySelector('.main-books-list-ul-li-title').innerText,
-      e.target.parentElement.querySelector('.main-books-list-ul-li-author').innerText,
+      e.target.parentElement.parentElement.children[0].children[0].innerHTML,
+      e.target.parentElement.parentElement.children[0].children[1].innerHTML,
     );
     book.removeBook();
   }
