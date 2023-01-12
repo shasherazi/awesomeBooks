@@ -31,10 +31,18 @@ class Book {
     const bookItem = document.createElement('li');
     bookItem.classList.add('main-books-list-ul-li');
     bookItem.innerHTML = `
-    <p class="main-books-list-ul-li-title">${title}</p>
-    <p class="main-books-list-ul-li-author">${author}</p>
-            <button class="main-books-list-ul-li-button">Remove</button>
-            <hr class="main-books-list-ul-li-hr">
+    <div>
+      <div class='books-display'>
+        <div class='book-name'>
+          <p class="main-books-list-ul-li-title">"${title}" by </p>
+          <p class="main-books-list-ul-li-author">${author}</p>
+        </div>
+        <div>
+          <button class="main-books-list-ul-li-button">Remove</button>
+        </div>
+      </div>
+      <hr class="main-books-list-ul-li-hr">
+    </div>
             `;
     booksList.appendChild(bookItem);
   }
@@ -71,7 +79,7 @@ form.addEventListener('submit', (e) => {
 // Remove books from the List and from the books array
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('main-books-list-ul-li-button')) {
-    e.target.parentElement.remove();
+    e.target.parentElement.parentElement.remove();
 
     const book = new Book(
       e.target.parentElement.querySelector('.main-books-list-ul-li-title').innerText,

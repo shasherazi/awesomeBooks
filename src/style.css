@@ -99,6 +99,20 @@ nav {
   padding: 10px;
 }
 
+.books-display {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.book-name {
+  display: flex;
+}
+
+.book-name p {
+  padding: 0 10px;
+}
+
 .copyright {
   padding: 5px;
   border: 2px solid black;
@@ -118,8 +132,4 @@ nav {
 
 .contact-info p {
   padding-bottom: 30px;
-}
-
-.contact-info ul li {
-  /* text-align: left; */
 }
