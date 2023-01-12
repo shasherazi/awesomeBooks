@@ -8,6 +8,7 @@ const contactSection = document.querySelector('.contact-info');
 const newBtn = document.querySelector('#new');
 const listBtn = document.querySelector('#list');
 const contactBtn = document.querySelector('#contact');
+const date = document.querySelector('#currentDate');
 
 class Book {
   static books = [];
@@ -44,9 +45,20 @@ class Book {
   }
 }
 
+function display(show, hide1, hide2) {
+  show.style.display = 'block';
+  hide1.style.display = 'none';
+  hide2.style.display = 'none';
+}
+
 function updateLocalStorage() {
   // Add item to local storage
   localStorage.setItem('booksArray', JSON.stringify(Book.books));
+}
+
+function updateClock() {
+  const now = new Date();
+  date.innerHTML = now.toString().substring(0, 21);
 }
 
 form.addEventListener('submit', (e) => {
@@ -80,19 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Display the current date
-const currentDate = new Date();
-document.getElementById('currentDate').innerHTML = currentDate;
-currentDate.toLocaleDateString();
+// Show current date
+setInterval(updateClock, 1000);
 
 bookListSection.style.display = 'none';
 contactSection.style.display = 'none';
-
-function display(show, hide1, hide2) {
-  show.style.display = 'block';
-  hide1.style.display = 'none';
-  hide2.style.display = 'none';
-}
 
 newBtn.addEventListener('click', () => {
   display(newBookSection, bookListSection, contactSection);
