@@ -41,7 +41,6 @@ class Book {
           <button class="main-books-list-ul-li-button">Remove</button>
         </div>
       </div>
-      <hr class="main-books-list-ul-li-hr">
     </div>
             `;
     booksList.appendChild(bookItem);
@@ -79,7 +78,7 @@ form.addEventListener('submit', (e) => {
 // Remove books from the List and from the books array
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('main-books-list-ul-li-button')) {
-    e.target.parentElement.parentElement.parentElement.remove();
+    e.target.parentElement.parentElement.parentElement.parentElement.remove();
 
     const book = new Book(
       e.target.parentElement.parentElement.children[0].children[0].innerHTML,

@@ -56,12 +56,10 @@ nav {
 
 .main-books-list {
   border: 2px solid black;
-  padding: 5px;
 }
 
 .main-books-list-ul {
   list-style-type: none;
-  margin-bottom: 50px;
 }
 
 .main-books-list-ul-li-hr {
@@ -102,16 +100,28 @@ nav {
 .books-display {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
 }
 
 .book-name {
   display: flex;
+  line-height: 29px;
+}
+
+.main-books-list-ul-li {
+  padding: 10px;
+}
+
+.main-books-list-ul-li:nth-child(odd) {
+  background-color: lightgray;
 }
 
 .main-books-list-ul-li-author::before {
   content: "\00a0 ";
   display: inline;
+}
+
+.main-books-list-ul-li-button {
+  padding: 5px;
 }
 
 .copyright {
