@@ -2,6 +2,13 @@ const booksList = document.querySelector('.main-books-list-ul');
 const form = document.querySelector('.main-form-form');
 const formTitle = document.querySelector('.main-form-form-title');
 const formAuthor = document.querySelector('.main-form-form-author');
+const newBookSection = document.querySelector('.add-new-book');
+const bookListSection = document.querySelector('.book-list-display');
+const contactSection = document.querySelector('.contact-info');
+const newBtn = document.querySelector('#new');
+const listBtn = document.querySelector('#list');
+const contactBtn = document.querySelector('#contact');
+const date = document.querySelector('#currentDate');
 
 class Book {
   static books = [];
@@ -24,23 +31,41 @@ class Book {
     const bookItem = document.createElement('li');
     bookItem.classList.add('main-books-list-ul-li');
     bookItem.innerHTML = `
-    <p class="main-books-list-ul-li-title">${title}</p>
-    <p class="main-books-list-ul-li-author">${author}</p>
-            <button class="main-books-list-ul-li-button">Remove</button>
-            <hr class="main-books-list-ul-li-hr">
+    <div>
+      <div class='books-display'>
+        <div class='book-name'>
+          <p class="main-books-list-ul-li-title">${title} by</p>
+          <p class="main-books-list-ul-li-author">${author}</p>
+        </div>
+        <div>
+          <button class="main-books-list-ul-li-button">Remove</button>
+        </div>
+      </div>
+    </div>
             `;
     booksList.appendChild(bookItem);
   }
 
   removeBook() {
-    Book.books = Book.books.filter((book) => book.title !== this.title);
+    Book.books = Book.books.filter((book) => `${book.title} by` !== this.title);
     updateLocalStorage(); // eslint-disable-line no-use-before-define
   }
+}
+
+function display(show, hide1, hide2) {
+  show.style.display = 'block';
+  hide1.style.display = 'none';
+  hide2.style.display = 'none';
 }
 
 function updateLocalStorage() {
   // Add item to local storage
   localStorage.setItem('booksArray', JSON.stringify(Book.books));
+}
+
+function updateClock() {
+  const now = new Date();
+  date.innerHTML = now.toString().substring(0, 21);
 }
 
 form.addEventListener('submit', (e) => {
@@ -53,15 +78,11 @@ form.addEventListener('submit', (e) => {
 // Remove books from the List and from the books array
 document.addEventListener('click', (e) => {
   if (e.target.classList.contains('main-books-list-ul-li-button')) {
-    e.target.parentElement.remove();
+    e.target.parentElement.parentElement.parentElement.parentElement.remove();
 
     const book = new Book(
-      e.target.parentElement.querySelector(
-        '.main-books-list-ul-li-title',
-      ).innerText,
-      e.target.parentElement.querySelector(
-        '.main-books-list-ul-li-author',
-      ).innerText,
+      e.target.parentElement.parentElement.children[0].children[0].innerHTML,
+      e.target.parentElement.parentElement.children[0].children[1].innerHTML,
     );
     book.removeBook();
   }
@@ -76,4 +97,22 @@ document.addEventListener('DOMContentLoaded', () => {
       bookItem.addBookToView(book.title, book.author);
     });
   }
+});
+
+// Show current date
+setInterval(updateClock, 1000);
+
+bookListSection.style.display = 'none';
+contactSection.style.display = 'none';
+
+newBtn.addEventListener('click', () => {
+  display(newBookSection, bookListSection, contactSection);
+});
+
+listBtn.addEventListener('click', () => {
+  display(bookListSection, newBookSection, contactSection);
+});
+
+contactBtn.addEventListener('click', () => {
+  display(contactSection, newBookSection, bookListSection);
 });

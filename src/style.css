@@ -8,8 +8,35 @@
   margin: 20px 50px;
 }
 
+nav {
+  border: 2px solid black;
+  padding: 10px;
+}
+
 .main-heading {
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-heading ul {
+  display: flex;
+}
+
+.main-heading ul li {
+  padding: 0 10px;
+  text-decoration: none;
+  list-style: none;
+  cursor: pointer;
+}
+
+#currentDate {
+  text-align: right;
+  font-size: 1rem;
+  padding: 5px 0;
+}
+
+.book-heading {
+  padding: 10px;
   text-align: center;
 }
 
@@ -27,9 +54,12 @@
   padding: 0 10px;
 }
 
+.main-books-list {
+  border: 2px solid black;
+}
+
 .main-books-list-ul {
   list-style-type: none;
-  margin-bottom: 50px;
 }
 
 .main-books-list-ul-li-hr {
@@ -56,4 +86,61 @@
   width: fit-content;
   padding: 10px;
   text-align: right;
+}
+
+.book-list-display {
+  display: block;
+}
+
+.book-list-display h3 {
+  text-align: center;
+  padding: 10px;
+}
+
+.books-display {
+  display: flex;
+  justify-content: space-between;
+}
+
+.book-name {
+  display: flex;
+  line-height: 29px;
+}
+
+.main-books-list-ul-li {
+  padding: 10px;
+}
+
+.main-books-list-ul-li:nth-child(odd) {
+  background-color: lightgray;
+}
+
+.main-books-list-ul-li-author::before {
+  content: "\00a0 ";
+  display: inline;
+}
+
+.main-books-list-ul-li-button {
+  padding: 5px;
+}
+
+.copyright {
+  padding: 5px;
+  border: 2px solid black;
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
+
+.contact-info {
+  padding: 10px;
+  text-align: center;
+  margin: 0 150px;
+}
+
+.contact-info h3 {
+  padding: 50px 0;
+}
+
+.contact-info p {
+  padding-bottom: 30px;
 }
